@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordWidget — Variant 2: Phone Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background: #E4E6F0;
+    display: grid;
+    place-items: center;
+    font-family: system-ui, sans-serif;
+    padding: 24px;
+  }
+
+  .bezel {
+    background: #12121A;
+    border-radius: 44px;
+    padding: 12px;
+    box-shadow: 0 30px 80px -24px rgba(18,18,26,0.45);
+  }
+  .bezel iframe {
+    display: block;
+    width: 375px; height: 812px;
+    max-height: calc(100vh - 80px);
+    border: 0;
+    border-radius: 34px;
+    background: #F5F6FA;
+  }
+  .caption {
+    position: fixed; bottom: 16px; left: 0; right: 0;
+    text-align: center;
+    font-size: 13px; color: #5C5C70;
+  }
+</style>
+</head>
+<body>
+<div class="bezel">
+  <iframe src="index.html" title="WordWidget landing page at phone size"></iframe>
+</div>
+<p class="caption">The same page at iPhone size (375 × 812) — fully interactive.</p>
+</body>
+</html>
