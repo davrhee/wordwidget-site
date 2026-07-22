@@ -1,0 +1,5 @@
+# wordwidget - all crawlers welcome, including AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+User-agent: *
+Allow: /
+
+Sitemap: https://wordwidget.net/sitemap.xml
