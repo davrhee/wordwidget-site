@@ -1,0 +1,103 @@
+<title>wordwidget — Support</title>
+<style>
+  :root {
+    --ground: #F5F6FA;
+    --card: #FFFFFF;
+    --ink: #1B1E28;
+    --muted: #5B6072;
+    --accent: #3B5BDB;
+    --accent-ink: #2A45B5;
+    --hairline: #E4E6EF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #111319;
+      --card: #191C24;
+      --ink: #ECEDF3;
+      --muted: #9AA0B4;
+      --accent: #8DA2FF;
+      --accent-ink: #AEBCFF;
+      --hairline: #2A2E3A;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #F5F6FA; --card: #FFFFFF; --ink: #1B1E28; --muted: #5B6072;
+    --accent: #3B5BDB; --accent-ink: #2A45B5; --hairline: #E4E6EF;
+  }
+  :root[data-theme="dark"] {
+    --ground: #111319; --card: #191C24; --ink: #ECEDF3; --muted: #9AA0B4;
+    --accent: #8DA2FF; --accent-ink: #AEBCFF; --hairline: #2A2E3A;
+  }
+
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: ui-sans-serif, -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    line-height: 1.6;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: 20px;
+    padding: 44px 40px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(20, 24, 40, .04), 0 12px 32px rgba(20, 24, 40, .06);
+  }
+  .wordmark {
+    font-family: ui-serif, "New York", Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 20px;
+  }
+  p { color: var(--muted); margin: 0 0 20px; max-width: 60ch; }
+  .contact {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+    flex-wrap: wrap;
+  }
+  .contact span {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  a {
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-bottom: 1px;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+</style>
+
+<main class="card">
+  <p class="eyebrow">Support</p>
+  <h1 class="wordmark">wordwidget</h1>
+  <p>Thanks for using wordwidget. If you have a question, found a problem, or want to suggest a word, send a note and I'll get back to you.</p>
+  <div class="contact">
+    <span>Contact</span>
+    <a href="mailto:support@wordwidget.net">support@wordwidget.net</a>
+  </div>
+</main>
