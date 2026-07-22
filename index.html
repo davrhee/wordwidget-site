@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WordWidget — one word a day</title>
+<title>wordwidget — daily vocab</title>
 <meta name="description" content="A light-touch vocabulary app for iOS. One word a day on your home screen. Free forever - no ads, no data collected, no internet required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,8 @@
     font-size: 2rem; font-weight: 500; letter-spacing: -0.01em;
     overflow-wrap: anywhere;
   }
-  .widget .phon { margin-top: 2px; font-size: 0.95rem; font-style: italic; color: var(--muted); }
+  .widget .phon { margin-top: 4px; font-size: 0.95rem; color: var(--muted); }
+  .widget .phon .pos { font-style: italic; color: var(--ink); opacity: 0.62; margin-right: 6px; }
   .widget hr { border: 0; border-top: 1px solid var(--divider); margin: 15px 0 13px; }
   .widget .def { font-size: 0.97rem; line-height: 1.55; }
   .widget .def b { font-weight: 500; font-style: italic; color: var(--muted); }
@@ -329,11 +330,11 @@
   <div class="stage">
     <div>
       <div class="widget" id="widget">
-        <div class="slot">Today's word</div>
+        <div class="slot">Word of the day</div>
         <div class="word" id="w-word">halcyon</div>
-        <div class="phon" id="w-phon">/HAL-see-un/</div>
+        <div class="phon" id="w-phon"><span class="pos">adj.</span> /HAL-see-un/</div>
         <hr>
-        <div class="def" id="w-def"><b>adj.</b> Denoting a past period that was idyllically calm, peaceful, and happy.</div>
+        <div class="def" id="w-def">Denoting a past period that was idyllically calm, peaceful, and happy.</div>
         <div class="quote" id="w-quote">“Expect Saint Martin's summer, halcyon days, since I have entered into these wars.”<span class="by">— William Shakespeare (Henry VI, Part 1)</span></div>
       </div>
       <div class="dots" id="dots" role="tablist" aria-label="Featured words"></div>
@@ -484,9 +485,10 @@ let cardIdx = 0;
 
 const el = id => document.getElementById(id);
 function render(entry) {
+  const posAbbr = {adjective:"adj.", noun:"n.", verb:"v.", adverb:"adv."}[entry.pos];
   el("w-word").textContent = entry.word;
-  el("w-phon").textContent = "/" + entry.pron + "/";
-  el("w-def").innerHTML = "<b>" + {adjective:"adj.", noun:"n.", verb:"v.", adverb:"adv."}[entry.pos] + "</b> " + entry.def;
+  el("w-phon").innerHTML = '<span class="pos">' + posAbbr + '</span> /' + entry.pron + '/';
+  el("w-def").textContent = entry.def;
   const q = el("w-quote");
   if (entry.quote) {
     q.innerHTML = "“" + entry.quote + "”" + (entry.author ? '<span class="by">— ' + entry.author + "</span>" : "");
